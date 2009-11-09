@@ -1,0 +1,24 @@
+make  all-recursive                           
+make[1]: Entering directory `/home/fargie_s/work/colorit'
+Making all in src
+make[2]: Entering directory `/home/fargie_s/work/colorit/src'
+make  all-am
+make[3]: Entering directory `/home/fargie_s/work/colorit/src'
+gcc -DHAVE_CONFIG_H -I. -I..     -g -O2 -MT parser.o -MD -MP -MF .deps/parser.Tpo -c -o parser.o parser.c
+mv -f .deps/parser.Tpo .deps/parser.Po
+/bin/sh ../ylwrap lexer.l lex.yy.c lexer.c -- flex
+/home/fargie_s/work/colorit/src/lexer.l:48: warning, -s option given but default rule can be matched
+gcc -DHAVE_CONFIG_H -I. -I..     -g -O2 -MT lexer.o -MD -MP -MF .deps/lexer.Tpo -c -o lexer.o lexer.c
+lexer.l: In function 'yylex':
+lexer.l:37: warning: incompatible implicit declaration of built-in function 'strndup'
+mv -f .deps/lexer.Tpo .deps/lexer.Po
+gcc -DHAVE_CONFIG_H -I. -I..     -g -O2 -MT main.o -MD -MP -MF .deps/main.Tpo -c -o main.o main.c
+mv -f .deps/main.Tpo .deps/main.Po
+make[3]: *** No rule to make target `colorizer_term.o', needed by `colorit'.  Stop.
+make[3]: Leaving directory `/home/fargie_s/work/colorit/src'
+make[2]: *** [all] Error 2
+make[2]: Leaving directory `/home/fargie_s/work/colorit/src'
+make[1]: *** [all-recursive] Error 1
+make[1]: Leaving directory `/home/fargie_s/work/colorit'
+make: *** [all] Error 2
+

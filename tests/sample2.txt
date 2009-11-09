@@ -1,0 +1,39 @@
+Making clean in src
+make[1]: Entering directory `/home/fargie_s/work/colorit/src'
+test -z "colorit" || rm -f colorit
+rm -f *.o
+make[1]: Leaving directory `/home/fargie_s/work/colorit/src'
+Making clean in .
+make[1]: Entering directory `/home/fargie_s/work/colorit'
+make[1]: Nothing to be done for `clean-am'.
+make[1]: Leaving directory `/home/fargie_s/work/colorit'
+make  all-recursive
+make[1]: Entering directory `/home/fargie_s/work/colorit'
+Making all in src
+make[2]: Entering directory `/home/fargie_s/work/colorit/src'
+make  all-am
+make[3]: Entering directory `/home/fargie_s/work/colorit/src'
+gcc -DHAVE_CONFIG_H -I. -I..     -g -O2 -MT parser.o -MD -MP -MF .deps/parser.Tpo -c -o parser.o parser.c
+mv -f .deps/parser.Tpo .deps/parser.Po
+gcc -DHAVE_CONFIG_H -I. -I..     -g -O2 -MT lexer.o -MD -MP -MF .deps/lexer.Tpo -c -o lexer.o lexer.c
+lexer.l: In function 'yylex':
+lexer.l:39: warning: incompatible implicit declaration of built-in function 'strndup'
+mv -f .deps/lexer.Tpo .deps/lexer.Po
+gcc -DHAVE_CONFIG_H -I. -I..     -g -O2 -MT main.o -MD -MP -MF .deps/main.Tpo -c -o main.o main.c
+mv -f .deps/main.Tpo .deps/main.Po
+gcc -DHAVE_CONFIG_H -I. -I..     -g -O2 -MT parser_util.o -MD -MP -MF .deps/parser_util.Tpo -c -o parser_util.o parser_util.c
+mv -f .deps/parser_util.Tpo .deps/parser_util.Po
+gcc -DHAVE_CONFIG_H -I. -I..     -g -O2 -MT colorize_term.o -MD -MP -MF .deps/colorize_term.Tpo -c -o colorize_term.o colorize_term.c
+colorize_term.c: In function 'print_term':
+colorize_term.c:35: warning: format not a string literal and no format arguments
+colorize_term.c: In function 'get_color_term':
+colorize_term.c:42: warning: incompatible implicit declaration of built-in function 'malloc'
+mv -f .deps/colorize_term.Tpo .deps/colorize_term.Po
+gcc  -g -O2   -o colorit parser.o lexer.o main.o parser_util.o colorize_term.o
+make[3]: Leaving directory `/home/fargie_s/work/colorit/src'
+make[2]: Leaving directory `/home/fargie_s/work/colorit/src'
+make[2]: Entering directory `/home/fargie_s/work/colorit'
+make[2]: Nothing to be done for `all-am'.
+make[2]: Leaving directory `/home/fargie_s/work/colorit'
+make[1]: Leaving directory `/home/fargie_s/work/colorit'
+

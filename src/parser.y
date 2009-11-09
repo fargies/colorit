@@ -1,3 +1,7 @@
+%pure-parser
+
+%parse-param { colorit_data *pp }
+
 
 %union
 {     
@@ -7,17 +11,25 @@
 
 %{
 
-void yyerror(const char *s);
-
 #include <string.h>
 #include <stdio.h>
 
+#include "lexer.h"
+#include "colorit.h"
 #include "parser_util.h"
 
+#define YYLEX_PARAM pp->scaninfo
+
+void yyerror(colorit_data *pp, const char *s);
+
+#define COLORIZE(type,txt,status) pp->col[type]->print(pp->out,txt,status)
 %}
 
 %token GCC_CMD    "GCC cmd"
 %token GCC_LOG    "GCC log"
+%token <sval> GCC_COMPILER "compiler"
+%token <sval> GCC_OPTIM "optim"
+
 %token <sval> WARNING  "warning"
 %token <sval> ERROR    "error"
 %token <ival> LINE     "line"
@@ -32,32 +44,35 @@ void yyerror(const char *s);
 %start log
 %%
 log:
-| words log { printf("%s\n", $<sval>1); }
-| GCC_LOG gcc_logs log
-| GCC_CMD gcc_cmd log
+| log words EOL {
+                  if ($<sval>2) {
+                    pp->print(pp->out, $<sval>2, STATUS_NONE);
+                    pp->print(pp->out, "\n", STATUS_NONE);
+                    free($<sval>2);
+                  }
+                }
+| log GCC_LOG gcc_log EOL { COLORIZE(COL_GCC_LOG, "\n", STATUS_RESET); }
+| log GCC_CMD gcc_cmd EOL { COLORIZE(COL_GCC_CMD, "\n", STATUS_RESET); }
 ;
 
 gcc_cmd:
-| WORD gcc_cmd
-| TS gcc_cmd
-| LIB gcc_cmd
-| INCLUDE gcc_cmd
-| OPTIM gcc_cmd
+| gcc_cmd GCC_COMPILER   { COLORIZE(COL_GCC_CMD, $<sval>2, STATUS_INFO); free($<sval>2); }
+| gcc_cmd GCC_OPTIM      { COLORIZE(COL_GCC_CMD, $<sval>2, STATUS_INFO); free($<sval>2); }
+| gcc_cmd WORD           { COLORIZE(COL_GCC_CMD, $<sval>2, STATUS_NONE); free($<sval>2); }
+| gcc_cmd TS             { COLORIZE(COL_GCC_CMD, $<sval>2, STATUS_NONE); free($<sval>2); }
 ;
 
 
-gcc_logs: 
-| gcc_start_line TS WARNING words EOL
+gcc_log:
+| gcc_log FILENAME { COLORIZE(COL_GCC_LOG, $<sval>2, STATUS_INFO); free($<sval>2); }
+| gcc_log LINE     { COLORIZE(COL_GCC_LOG, $<sval>2, STATUS_INFO); free($<sval>2); }
+| gcc_log WARNING  { COLORIZE(COL_GCC_LOG, NULL, STATUS_WARNING);  COLORIZE(COL_GCC_CMD, $<sval>2, STATUS_NONE); free($<sval>2);}
+| gcc_log ERROR    { COLORIZE(COL_GCC_LOG, NULL, STATUS_ERROR);  COLORIZE(COL_GCC_CMD, $<sval>2, STATUS_NONE); free($<sval>2);}
+| gcc_log words    { COLORIZE(COL_GCC_CMD, $<sval>2, STATUS_NONE); free($<sval>2); }
 ;
 
 words: { $<sval>$ = NULL; }
 | TS words
-{
-  $<sval>$ = putil_strconcat($<sval>1, $<sval>2);
-  free($<sval>1);
-  if ($<sval>2)
-    free($<sval>2);
-}
 | WORD words
 {
   $<sval>$ = putil_strconcat($<sval>1, $<sval>2);
@@ -67,16 +82,9 @@ words: { $<sval>$ = NULL; }
 }
 ;
 
-gcc_notif:
-  gcc_start_line ' ' WARNING ':' words EOL
-
-gcc_start_line:
-  FILENAME ':' LINE ':' { printf("%s\n", $1); }
-| FILENAME ':'
-
 %%
 
-void yyerror(const char *s)
+void yyerror(colorit_data *pp, const char *s)
 {
   fprintf(stderr, "%s\n", s);
 }
