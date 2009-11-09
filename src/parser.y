@@ -50,9 +50,10 @@ log:
                     pp->print(pp->out, "\n", STATUS_NONE);
                     free($<sval>2);
                   }
+                  fflush(pp->out);
                 }
-| log GCC_LOG gcc_log EOL { COLORIZE(COL_GCC_LOG, "\n", STATUS_RESET); }
-| log GCC_CMD gcc_cmd EOL { COLORIZE(COL_GCC_CMD, "\n", STATUS_RESET); }
+| log GCC_LOG gcc_log EOL { COLORIZE(COL_GCC_LOG, "\n", STATUS_RESET); fflush(pp->out); }
+| log GCC_CMD gcc_cmd EOL { COLORIZE(COL_GCC_CMD, "\n", STATUS_RESET); fflush(pp->out); }
 ;
 
 gcc_cmd:
@@ -72,8 +73,8 @@ gcc_log:
 ;
 
 words: { $<sval>$ = NULL; }
-| TS words
-| WORD words
+| words TS
+| words WORD
 {
   $<sval>$ = putil_strconcat($<sval>1, $<sval>2);
   free($<sval>1);

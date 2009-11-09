@@ -7,6 +7,8 @@ char *putil_strconcat(char *a, char *b)
 {
   if (!b) {
     return strdup(a);
+  } else if (!a) {
+    return strdup(b);
   } else {
     char *res = malloc(strlen(a) + strlen(b) + 1);
     strcpy(res, a);
