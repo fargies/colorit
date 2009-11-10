@@ -56,10 +56,9 @@ log: EOL
                   }
                   fflush(pp->out);
                 }
-| GCC_LOG gcc_log EOL
-| GCC_CMD gcc_cmd EOL
-| MAKE make_cmd EOL   
-{ COLORIZE(COL_GCC_CMD, "\n", STATUS_RESET); fflush(pp->out); }
+| GCC_LOG gcc_log EOL { COLORIZE(COL_GCC_CMD, "\n", STATUS_RESET); fflush(pp->out); }
+| GCC_CMD gcc_cmd EOL { COLORIZE(COL_GCC_CMD, "\n", STATUS_RESET); fflush(pp->out); }
+| MAKE make_cmd EOL   { COLORIZE(COL_GCC_CMD, "\n", STATUS_RESET); fflush(pp->out); }
 ;
 
 gcc_cmd: GCC_COMPILER   { COLORIZE(COL_GCC_CMD, $<sval>1, STATUS_INFO); free($<sval>1); }
