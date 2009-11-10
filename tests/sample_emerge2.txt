@@ -1,0 +1,331 @@
+
+>>> Emerging (1 of 1) sys-libs/multicom-modules-3.2.2.4-r1 to /usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root/
+>>> Creating Manifest for /usr/local/portage/wyplay-overlay-gaia-1.3.17/sys-libs/multicom-modules
+ * checking ebuild checksums ;-) ...                                      [ ok ]
+ * checking auxfile checksums ;-) ...                                     [ ok ]
+ * checking miscfile checksums ;-) ...                                    [ ok ]
+ * Determining the location of the kernel source code
+ * Found kernel source directory:
+ *     /usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux
+ * Found sources for kernel version:
+ *     2.6.23.17_stm23_0118-GAIABA_V0100_sti7109-26
+>>> Unpacking source...
+ * subversion check out start -->
+ *      repository: svn+ssh://svn.wyplay.int/opt/svn/system/st-modules/multicom/vendor/3.2.2-4
+Checked out revision 1198.
+ *    working copy: /usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/distfiles/svn-src/multicom-modules/3.2.2-4
+
+>>> Source unpacked.
+>>> Compiling source in /usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4 ...
+ * Applying multicom-3.2.2.4_apm-thread.patch ...
+  [ ok ]
+ * Building kernel modules ...
+ * Preparing embxloopback module
+mkdir -p /usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/lib/linux/st40
+make KBUILD_WRAPPER=1 \
+		KERNELDIR=/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux \
+		KERNELDIR_ST40_LINUX_KO=/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux \
+		DISABLE_IA32_LINUX=1 \
+		DISABLE_ST40_OS21=1 \
+		DISABLE_ST40_LINUX=1 \
+		DISABLE_ST40_WINCE=1 \
+		DISABLE_ST231_OS21=1 \
+		DISABLE_PLATFORM_WARNINGS=1 \
+		install
+cp -f /usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/mkfiles/kbuild.mak /usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/lib/linux/st40/Makefile
+make[1]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4'
+make -C configs install  DIST_SRC_LOCATION=./configs
+make -C docs install  DIST_SRC_LOCATION=./docs
+make -C src install  DIST_SRC_LOCATION=./src
+make -C examples install  DIST_SRC_LOCATION=./examples
+Multicom build completed successfully
+make[2]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/examples'
+make -C harness install  DIST_SRC_LOCATION=./examples/harness
+make -C embx install  DIST_SRC_LOCATION=./examples/embx
+make -C rpc install  DIST_SRC_LOCATION=./examples/rpc
+make -C mme install  DIST_SRC_LOCATION=./examples/mme
+make[2]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src'
+make -C mkfiles install  DIST_SRC_LOCATION=./src/mkfiles
+make[2]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/docs'
+make[2]: Nothing to be done for `install'.
+make[2]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/docs'
+make[2]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/configs'
+make[2]: Nothing to be done for `install'.
+make[2]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/configs'
+make[3]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/examples/embx'
+make -C three_cpu_hello install  DIST_SRC_LOCATION=./examples/embx/three_cpu_hello
+make -C tools install  DIST_SRC_LOCATION=./src/tools
+make -C buffer_pool install  DIST_SRC_LOCATION=./examples/embx/buffer_pool
+make[3]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/examples/rpc'
+make -C getstart install  DIST_SRC_LOCATION=./examples/rpc/getstart
+make -C embx install  DIST_SRC_LOCATION=./src/embx
+make -C ping_pong install  DIST_SRC_LOCATION=./examples/embx/ping_pong
+make -C posthoc install  DIST_SRC_LOCATION=./examples/rpc/posthoc
+make[3]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/examples/mme'
+make -C getstart install  DIST_SRC_LOCATION=./examples/mme/getstart
+make[3]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/examples/harness'
+make[3]: Nothing to be done for `install'.
+make[3]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/examples/harness'
+make[4]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/examples/rpc/getstart'
+make -C mme install  DIST_SRC_LOCATION=./src/mme
+make[4]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/examples/embx/buffer_pool'
+Please use "make example" to build this directory
+Please use "make example" to build this directory
+make[4]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/examples/embx/three_cpu_hello'
+make[3]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/tools'
+make -C multirun install  DIST_SRC_LOCATION=./src/tools/multirun
+make[4]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/examples/mme/getstart'
+Please use "make example" to build this directory
+Please use "make example" to build this directory
+make[4]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/examples/rpc/getstart'
+make -C strategy install  DIST_SRC_LOCATION=./examples/rpc/strategy
+make[4]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/examples/embx/buffer_pool'
+make[4]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/examples/embx/ping_pong'
+make[4]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/examples/mme/getstart'
+make -C multicompanion install  DIST_SRC_LOCATION=./examples/mme/multicompanion
+Please use "make example" to build this directory
+make[3]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/mkfiles'
+make[3]: Nothing to be done for `install'.
+make[3]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/mkfiles'
+make[4]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/examples/rpc/posthoc'
+make[3]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/mme'
+make -C include install  DIST_SRC_LOCATION=./src/mme/include
+Please use "make example" to build this directory
+make[3]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/embx'
+make -C embxshell install  DIST_SRC_LOCATION=./src/embx/embxshell
+make -C rpc install  DIST_SRC_LOCATION=./src/rpc
+make[4]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/examples/embx/ping_pong'
+make -C tricks install  DIST_SRC_LOCATION=./examples/rpc/tricks
+make[4]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/examples/embx/three_cpu_hello'
+make[3]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/examples/embx'
+make[4]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/examples/rpc/strategy'
+Please use "make example" to build this directory
+make[4]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/examples/rpc/posthoc'
+make[4]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/mme/include'
+cp -f mme.h ../../../include/mme.h
+make -C embxmailbox install  DIST_SRC_LOCATION=./src/embx/embxmailbox
+make[4]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/examples/rpc/strategy'
+make[4]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/tools/multirun'
+make[4]: Nothing to be done for `install'.
+make[4]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/tools/multirun'
+make[3]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/tools'
+make[4]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/embx/embxshell'
+mkdir -p obj/linux/st40
+make -C embxloopback install  DIST_SRC_LOCATION=./src/embx/embxloopback
+sh4-unknown-linux-gnu-gcc -c -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -Werror-implicit-function-declaration -Wdeclaration-after-statement -Wno-pointer-sign -ml -Wa,-isa=sh4 -m4 -m4-nofpu -pipe -D__LINUX__ -D__SH4__ -D__KERNEL__ -DMODULE -DEXPORT_SYMTAB -fno-common -ffreestanding -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-strict-aliasing -fno-stack-protector -DMULTICOM_GPL -O2  -I../include -D"KBUILD_STR(s)=#s" -D"KBUILD_MODNAME=KBUILD_STR(embxshell)" -D"KBUILD_BASENAME=KBUILD_STR(embx_buffer)"  -I../../../include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include2 -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -include /usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include/linux/autoconf.h embx_buffer.c -o obj/linux/st40/embx_buffer.lo 
+sh4-unknown-linux-gnu-gcc -c -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -Werror-implicit-function-declaration -Wdeclaration-after-statement -Wno-pointer-sign -ml -Wa,-isa=sh4 -m4 -m4-nofpu -pipe -D__LINUX__ -D__SH4__ -D__KERNEL__ -DMODULE -DEXPORT_SYMTAB -fno-common -ffreestanding -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-strict-aliasing -fno-stack-protector -DMULTICOM_GPL -O2  -I../include -D"KBUILD_STR(s)=#s" -D"KBUILD_MODNAME=KBUILD_STR(embxshell)" -D"KBUILD_BASENAME=KBUILD_STR(embx_connect)"  -I../../../include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include2 -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -include /usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include/linux/autoconf.h embx_connect.c -o obj/linux/st40/embx_connect.lo 
+sh4-unknown-linux-gnu-gcc -c -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -Werror-implicit-function-declaration -Wdeclaration-after-statement -Wno-pointer-sign -ml -Wa,-isa=sh4 -m4 -m4-nofpu -pipe -D__LINUX__ -D__SH4__ -D__KERNEL__ -DMODULE -DEXPORT_SYMTAB -fno-common -ffreestanding -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-strict-aliasing -fno-stack-protector -DMULTICOM_GPL -O2  -I../include -D"KBUILD_STR(s)=#s" -D"KBUILD_MODNAME=KBUILD_STR(embxshell)" -D"KBUILD_BASENAME=KBUILD_STR(embx_debug)"  -I../../../include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include2 -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -include /usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include/linux/autoconf.h embx_debug.c -o obj/linux/st40/embx_debug.lo 
+make[3]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/rpc'
+make -C rpc_userver install  DIST_SRC_LOCATION=./src/rpc/rpc_userver
+make[4]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/examples/mme/multicompanion'
+make[4]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/embx/embxmailbox'
+mkdir -p obj/linux/st40
+make[4]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/mme/include'
+make -C host install  DIST_SRC_LOCATION=./src/mme/host
+Please use "make example" to build this directory
+sh4-unknown-linux-gnu-gcc -c -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -Werror-implicit-function-declaration -Wdeclaration-after-statement -Wno-pointer-sign -ml -Wa,-isa=sh4 -m4 -m4-nofpu -pipe -D__LINUX__ -D__SH4__ -D__KERNEL__ -DMODULE -DEXPORT_SYMTAB -fno-common -ffreestanding -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-strict-aliasing -fno-stack-protector -DMULTICOM_GPL -O2  -I../include -D"KBUILD_STR(s)=#s" -D"KBUILD_MODNAME=KBUILD_STR(embxmailbox)" -D"KBUILD_BASENAME=KBUILD_STR(embx_mailbox)"  -I../../../include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include2 -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -include /usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include/linux/autoconf.h embx_mailbox.c -o obj/linux/st40/embx_mailbox.lo 
+make[4]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/examples/mme/multicompanion'
+make[3]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/examples/mme'
+sh4-unknown-linux-gnu-gcc -c -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -Werror-implicit-function-declaration -Wdeclaration-after-statement -Wno-pointer-sign -ml -Wa,-isa=sh4 -m4 -m4-nofpu -pipe -D__LINUX__ -D__SH4__ -D__KERNEL__ -DMODULE -DEXPORT_SYMTAB -fno-common -ffreestanding -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-strict-aliasing -fno-stack-protector -DMULTICOM_GPL -O2  -I../include -D"KBUILD_STR(s)=#s" -D"KBUILD_MODNAME=KBUILD_STR(embxshell)" -D"KBUILD_BASENAME=KBUILD_STR(embx_deinit)"  -I../../../include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include2 -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -include /usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include/linux/autoconf.h embx_deinit.c -o obj/linux/st40/embx_deinit.lo 
+make[4]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/examples/rpc/tricks'
+make[4]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/embx/embxloopback'
+mkdir -p obj/linux/st40
+sh4-unknown-linux-gnu-gcc -c -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -Werror-implicit-function-declaration -Wdeclaration-after-statement -Wno-pointer-sign -ml -Wa,-isa=sh4 -m4 -m4-nofpu -pipe -D__LINUX__ -D__SH4__ -D__KERNEL__ -DMODULE -DEXPORT_SYMTAB -fno-common -ffreestanding -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-strict-aliasing -fno-stack-protector -DMULTICOM_GPL -O2  -I../include -D"KBUILD_STR(s)=#s" -D"KBUILD_MODNAME=KBUILD_STR(embxloopback)" -D"KBUILD_BASENAME=KBUILD_STR(embxlb_connection)"  -I../../../include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include2 -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -include /usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include/linux/autoconf.h embxlb_connection.c -o obj/linux/st40/embxlb_connection.lo 
+Assembler messages:
+Fatal error: can't create obj/linux/st40/embx_buffer.lo: No such file or directory
+make[4]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/mme/host'
+mkdir -p obj/linux/st40
+sh4-unknown-linux-gnu-gcc -c -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -Werror-implicit-function-declaration -Wdeclaration-after-statement -Wno-pointer-sign -ml -Wa,-isa=sh4 -m4 -m4-nofpu -pipe -D__LINUX__ -D__SH4__ -D__KERNEL__ -DMODULE -DEXPORT_SYMTAB -fno-common -ffreestanding -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-strict-aliasing -fno-stack-protector -DMULTICOM_GPL -O2  -I../include -I../../../src/embx/include -D"KBUILD_STR(s)=#s" -D"KBUILD_MODNAME=KBUILD_STR(mme_host)" -D"KBUILD_BASENAME=KBUILD_STR(mme_linux_module)"  -I../../../include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include2 -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -include /usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include/linux/autoconf.h mme_linux_module.c -o obj/linux/st40/mme_linux_module.lo 
+Assembler messages:
+Fatal error: can't create obj/linux/st40/embx_deinit.lo: No such file or directory
+Please use "make example" to build this directory
+make[4]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/rpc/rpc_userver'
+mkdir -p obj/linux/st40
+Assembler messages:
+Fatal error: can't create obj/linux/st40/embx_connect.lo: No such file or directory
+sh4-unknown-linux-gnu-gcc -c -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -Werror-implicit-function-declaration -Wdeclaration-after-statement -Wno-pointer-sign -ml -Wa,-isa=sh4 -m4 -m4-nofpu -pipe -D__LINUX__ -D__SH4__ -D__KERNEL__ -DMODULE -DEXPORT_SYMTAB -fno-common -ffreestanding -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-strict-aliasing -fno-stack-protector -DMULTICOM_GPL -O2   -D"KBUILD_STR(s)=#s" -D"KBUILD_MODNAME=KBUILD_STR(rpc_userver)" -D"KBUILD_BASENAME=KBUILD_STR(rpc_userver)"  -I../../../include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include2 -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -include /usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include/linux/autoconf.h rpc_userver.c -o obj/linux/st40/rpc_userver.lo 
+make[4]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/examples/rpc/tricks'
+make[3]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/examples/rpc'
+make[2]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/examples'
+Assembler messages:
+Fatal error: can't create obj/linux/st40/embx_debug.lo: No such file or directory
+sh4-unknown-linux-gnu-gcc -c -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -Werror-implicit-function-declaration -Wdeclaration-after-statement -Wno-pointer-sign -ml -Wa,-isa=sh4 -m4 -m4-nofpu -pipe -D__LINUX__ -D__SH4__ -D__KERNEL__ -DMODULE -DEXPORT_SYMTAB -fno-common -ffreestanding -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-strict-aliasing -fno-stack-protector -DMULTICOM_GPL -O2  -I../include -D"KBUILD_STR(s)=#s" -D"KBUILD_MODNAME=KBUILD_STR(embxshell)" -D"KBUILD_BASENAME=KBUILD_STR(embx_handle)"  -I../../../include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include2 -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -include /usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include/linux/autoconf.h embx_handle.c -o obj/linux/st40/embx_handle.lo 
+Assembler messages:
+Fatal error: can't create obj/linux/st40/embx_handle.lo: No such file or directory
+cp -f embxmailbox.h ../../../include/embxmailbox.h
+embx_mailbox.c: In function 'parseMailboxString':
+embx_mailbox.c:87: warning: ISO C90 forbids mixed declarations and code
+embx_mailbox.c: In function 'registerLocalMailbox':
+embx_mailbox.c:397: warning: passing argument 2 of 'request_irq' from incompatible pointer type
+cp -f rpc_userver.h ../../../include/rpc_userver.h
+make -C test install  DIST_SRC_LOCATION=./src/rpc/test
+make[4]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/rpc/test'
+make -C harness install  DIST_SRC_LOCATION=./src/rpc/test/harness
+make[5]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/rpc/test/harness'
+make[5]: Nothing to be done for `install'.
+make[5]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/rpc/test/harness'
+make -C shakedown install  DIST_SRC_LOCATION=./src/rpc/test/shakedown
+make[4]: *** [obj/linux/st40/embx_buffer.lo] Error 2
+make[4]: *** Waiting for unfinished jobs....
+make[4]: *** [obj/linux/st40/embx_deinit.lo] Error 2
+sh4-unknown-linux-gnu-gcc -c -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -Werror-implicit-function-declaration -Wdeclaration-after-statement -Wno-pointer-sign -ml -Wa,-isa=sh4 -m4 -m4-nofpu -pipe -D__LINUX__ -D__SH4__ -D__KERNEL__ -DMODULE -DEXPORT_SYMTAB -fno-common -ffreestanding -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-strict-aliasing -fno-stack-protector -DMULTICOM_GPL -O2  -I../include -I../../../src/embx/include -D"KBUILD_STR(s)=#s" -D"KBUILD_MODNAME=KBUILD_STR(mme_host)" -D"KBUILD_BASENAME=KBUILD_STR(ExecutionLoop)"  -I../../../include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include2 -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -include /usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include/linux/autoconf.h ExecutionLoop.c -o obj/linux/st40/ExecutionLoop.lo 
+make[4]: *** [obj/linux/st40/embx_connect.lo] Error 2
+sh4-unknown-linux-gnu-gcc -c -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -Werror-implicit-function-declaration -Wdeclaration-after-statement -Wno-pointer-sign -ml -Wa,-isa=sh4 -m4 -m4-nofpu -pipe -D__LINUX__ -D__SH4__ -D__KERNEL__ -DMODULE -DEXPORT_SYMTAB -fno-common -ffreestanding -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-strict-aliasing -fno-stack-protector -DMULTICOM_GPL -O2  -I../include -D"KBUILD_STR(s)=#s" -D"KBUILD_MODNAME=KBUILD_STR(embxloopback)" -D"KBUILD_BASENAME=KBUILD_STR(embxlb_factory)"  -I../../../include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include2 -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -include /usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include/linux/autoconf.h embxlb_factory.c -o obj/linux/st40/embxlb_factory.lo 
+make -C companion install  DIST_SRC_LOCATION=./src/mme/companion
+make[4]: *** [obj/linux/st40/embx_debug.lo] Error 2
+sh4-unknown-linux-gnu-gcc -c -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -Werror-implicit-function-declaration -Wdeclaration-after-statement -Wno-pointer-sign -ml -Wa,-isa=sh4 -m4 -m4-nofpu -pipe -D__LINUX__ -D__SH4__ -D__KERNEL__ -DMODULE -DEXPORT_SYMTAB -fno-common -ffreestanding -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-strict-aliasing -fno-stack-protector -DMULTICOM_GPL -O2  -I../include -I../../../src/embx/include -D"KBUILD_STR(s)=#s" -D"KBUILD_MODNAME=KBUILD_STR(mme_host)" -D"KBUILD_BASENAME=KBUILD_STR(LocalTransformer)"  -I../../../include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include2 -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -include /usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include/linux/autoconf.h LocalTransformer.c -o obj/linux/st40/LocalTransformer.lo 
+make[5]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/rpc/test/shakedown'
+make -C roundtrip install  DIST_SRC_LOCATION=./src/rpc/test/shakedown/roundtrip
+make[4]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/mme/companion'
+mkdir -p obj/linux/st40
+make[4]: *** [obj/linux/st40/embx_handle.lo] Error 1
+make[4]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/embx/embxshell'
+make[3]: *** [embxshell] Error 2
+make[3]: *** Waiting for unfinished jobs....
+make -C test install  DIST_SRC_LOCATION=./src/mme/test
+make[6]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/rpc/test/shakedown/roundtrip'
+make[6]: Nothing to be done for `install'.
+make[6]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/rpc/test/shakedown/roundtrip'
+make -C callback install  DIST_SRC_LOCATION=./src/rpc/test/shakedown/callback
+make[4]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/mme/companion'
+make[6]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/rpc/test/shakedown/callback'
+make[6]: Nothing to be done for `install'.
+make[6]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/rpc/test/shakedown/callback'
+make -C primative install  DIST_SRC_LOCATION=./src/rpc/test/shakedown/primative
+sh4-unknown-linux-gnu-gcc -c -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -Werror-implicit-function-declaration -Wdeclaration-after-statement -Wno-pointer-sign -ml -Wa,-isa=sh4 -m4 -m4-nofpu -pipe -D__LINUX__ -D__SH4__ -D__KERNEL__ -DMODULE -DEXPORT_SYMTAB -fno-common -ffreestanding -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-strict-aliasing -fno-stack-protector -DMULTICOM_GPL -O2  -I../include -I../../../src/embx/include -D"KBUILD_STR(s)=#s" -D"KBUILD_MODNAME=KBUILD_STR(mme_host)" -D"KBUILD_BASENAME=KBUILD_STR(LookupTable)"  -I../../../include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include2 -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -include /usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include/linux/autoconf.h LookupTable.c -o obj/linux/st40/LookupTable.lo 
+make[6]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/rpc/test/shakedown/primative'
+make[6]: Nothing to be done for `install'.
+make[6]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/rpc/test/shakedown/primative'
+make -C shared install  DIST_SRC_LOCATION=./src/rpc/test/shakedown/shared
+make[6]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/rpc/test/shakedown/shared'
+make[6]: Nothing to be done for `install'.
+make[6]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/rpc/test/shakedown/shared'
+make -C string install  DIST_SRC_LOCATION=./src/rpc/test/shakedown/string
+make[6]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/rpc/test/shakedown/string'
+make[6]: Nothing to be done for `install'.
+make[6]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/rpc/test/shakedown/string'
+make -C termarray install  DIST_SRC_LOCATION=./src/rpc/test/shakedown/termarray
+embxlb_connection.c: In function 'create_port':
+embxlb_connection.c:213: warning: 'freeSlot' may be used uninitialized in this function
+make[6]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/rpc/test/shakedown/termarray'
+make[6]: Nothing to be done for `install'.
+make[6]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/rpc/test/shakedown/termarray'
+make -C vararray install  DIST_SRC_LOCATION=./src/rpc/test/shakedown/vararray
+make[6]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/rpc/test/shakedown/vararray'
+make[6]: Nothing to be done for `install'.
+make[6]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/rpc/test/shakedown/vararray'
+make[5]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/rpc/test/shakedown'
+make -C benchmark install  DIST_SRC_LOCATION=./src/rpc/test/benchmark
+embx_mailbox.c: In function 'EMBX_Mailbox_Synchronize':
+embx_mailbox.c:950: warning: 'oldParam' may be used uninitialized in this function
+embx_mailbox.c:949: warning: 'oldHandler' may be used uninitialized in this function
+sh4-unknown-linux-gnu-gcc -c -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -Werror-implicit-function-declaration -Wdeclaration-after-statement -Wno-pointer-sign -ml -Wa,-isa=sh4 -m4 -m4-nofpu -pipe -D__LINUX__ -D__SH4__ -D__KERNEL__ -DMODULE -DEXPORT_SYMTAB -fno-common -ffreestanding -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-strict-aliasing -fno-stack-protector -DMULTICOM_GPL -O2  -I../include -I../../../src/embx/include -D"KBUILD_STR(s)=#s" -D"KBUILD_MODNAME=KBUILD_STR(mme_host)" -D"KBUILD_BASENAME=KBUILD_STR(Manager)"  -I../../../include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include2 -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -include /usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include/linux/autoconf.h Manager.c -o obj/linux/st40/Manager.lo 
+sh4-unknown-linux-gnu-gcc -c -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -Werror-implicit-function-declaration -Wdeclaration-after-statement -Wno-pointer-sign -ml -Wa,-isa=sh4 -m4 -m4-nofpu -pipe -D__LINUX__ -D__SH4__ -D__KERNEL__ -DMODULE -DEXPORT_SYMTAB -fno-common -ffreestanding -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-strict-aliasing -fno-stack-protector -DMULTICOM_GPL -O2  -I../include -D"KBUILD_STR(s)=#s" -D"KBUILD_MODNAME=KBUILD_STR(embxloopback)" -D"KBUILD_BASENAME=KBUILD_STR(embxlb_localport)"  -I../../../include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include2 -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -include /usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include/linux/autoconf.h embxlb_localport.c -o obj/linux/st40/embxlb_localport.lo 
+make[4]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/mme/test'
+make -C harness install  DIST_SRC_LOCATION=./src/mme/test/harness
+make[5]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/rpc/test/benchmark'
+make[5]: Nothing to be done for `install'.
+make[5]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/rpc/test/benchmark'
+make[4]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/rpc/test'
+make -C simple install  DIST_SRC_LOCATION=./src/mme/test/simple
+make -C params install  DIST_SRC_LOCATION=./src/mme/test/params
+make -C api install  DIST_SRC_LOCATION=./src/mme/test/api
+make[5]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/mme/test/harness'
+make[5]: Nothing to be done for `install'.
+make[5]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/mme/test/harness'
+sh4-unknown-linux-gnu-gcc -c -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -Werror-implicit-function-declaration -Wdeclaration-after-statement -Wno-pointer-sign -ml -Wa,-isa=sh4 -m4 -m4-nofpu -pipe -D__LINUX__ -D__SH4__ -D__KERNEL__ -DMODULE -DEXPORT_SYMTAB -fno-common -ffreestanding -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-strict-aliasing -fno-stack-protector -DMULTICOM_GPL -O2  -I../include -I../../../src/embx/include -D"KBUILD_STR(s)=#s" -D"KBUILD_MODNAME=KBUILD_STR(mme_host)" -D"KBUILD_BASENAME=KBUILD_STR(RemoteTransformer)"  -I../../../include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include2 -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -include /usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include/linux/autoconf.h RemoteTransformer.c -o obj/linux/st40/RemoteTransformer.lo 
+sh4-unknown-linux-gnu-gcc -c -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -Werror-implicit-function-declaration -Wdeclaration-after-statement -Wno-pointer-sign -ml -Wa,-isa=sh4 -m4 -m4-nofpu -pipe -D__LINUX__ -D__SH4__ -D__KERNEL__ -DMODULE -DEXPORT_SYMTAB -fno-common -ffreestanding -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-strict-aliasing -fno-stack-protector -DMULTICOM_GPL -O2  -I../include -I../../../src/embx/include -D"KBUILD_STR(s)=#s" -D"KBUILD_MODNAME=KBUILD_STR(mme_host)" -D"KBUILD_BASENAME=KBUILD_STR(mme_debug)"  -I../../../include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include2 -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -include /usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include/linux/autoconf.h mme_debug.c -o obj/linux/st40/mme_debug.lo 
+make[5]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/mme/test/params'
+make[5]: Nothing to be done for `install'.
+make[5]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/mme/test/params'
+sh4-unknown-linux-gnu-gcc -c -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -Werror-implicit-function-declaration -Wdeclaration-after-statement -Wno-pointer-sign -ml -Wa,-isa=sh4 -m4 -m4-nofpu -pipe -D__LINUX__ -D__SH4__ -D__KERNEL__ -DMODULE -DEXPORT_SYMTAB -fno-common -ffreestanding -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-strict-aliasing -fno-stack-protector -DMULTICOM_GPL -O2  -I../include -I../../../src/embx/include -D"KBUILD_STR(s)=#s" -D"KBUILD_MODNAME=KBUILD_STR(mme_host)" -D"KBUILD_BASENAME=KBUILD_STR(mme_host_release)"  -I../../../include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include2 -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -include /usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include/linux/autoconf.h mme_host_release.c -o obj/linux/st40/mme_host_release.lo 
+make[5]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/mme/test/api'
+make[5]: Nothing to be done for `install'.
+make[5]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/mme/test/api'
+make -C benchmark install  DIST_SRC_LOCATION=./src/mme/test/benchmark
+sh4-unknown-linux-gnu-ld -r -EL  -o obj/linux/st40/embxmailbox.o_shipped  obj/linux/st40/embx_mailbox.lo
+cp -f obj/linux/st40/embxmailbox.o_shipped ../../../lib/linux/st40
+make[4]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/embx/embxmailbox'
+sh4-unknown-linux-gnu-gcc -c -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -Werror-implicit-function-declaration -Wdeclaration-after-statement -Wno-pointer-sign -ml -Wa,-isa=sh4 -m4 -m4-nofpu -pipe -D__LINUX__ -D__SH4__ -D__KERNEL__ -DMODULE -DEXPORT_SYMTAB -fno-common -ffreestanding -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-strict-aliasing -fno-stack-protector -DMULTICOM_GPL -O2  -I../include -D"KBUILD_STR(s)=#s" -D"KBUILD_MODNAME=KBUILD_STR(embxloopback)" -D"KBUILD_BASENAME=KBUILD_STR(embxlb_remoteport)"  -I../../../include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include2 -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -include /usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include/linux/autoconf.h embxlb_remoteport.c -o obj/linux/st40/embxlb_remoteport.lo 
+make[5]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/mme/test/benchmark'
+make[5]: Nothing to be done for `install'.
+make[5]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/mme/test/benchmark'
+sh4-unknown-linux-gnu-gcc -c -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -Werror-implicit-function-declaration -Wdeclaration-after-statement -Wno-pointer-sign -ml -Wa,-isa=sh4 -m4 -m4-nofpu -pipe -D__LINUX__ -D__SH4__ -D__KERNEL__ -DMODULE -DEXPORT_SYMTAB -fno-common -ffreestanding -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-strict-aliasing -fno-stack-protector -DMULTICOM_GPL -O2  -I../include -D"KBUILD_STR(s)=#s" -D"KBUILD_MODNAME=KBUILD_STR(embxloopback)" -D"KBUILD_BASENAME=KBUILD_STR(embxlb_transport)"  -I../../../include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include2 -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -include /usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include/linux/autoconf.h embxlb_transport.c -o obj/linux/st40/embxlb_transport.lo 
+sh4-unknown-linux-gnu-gcc -c -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -Werror-implicit-function-declaration -Wdeclaration-after-statement -Wno-pointer-sign -ml -Wa,-isa=sh4 -m4 -m4-nofpu -pipe -D__LINUX__ -D__SH4__ -D__KERNEL__ -DMODULE -DEXPORT_SYMTAB -fno-common -ffreestanding -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-strict-aliasing -fno-stack-protector -DMULTICOM_GPL -O2  -I../include -D"KBUILD_STR(s)=#s" -D"KBUILD_MODNAME=KBUILD_STR(embxloopback)" -D"KBUILD_BASENAME=KBUILD_STR(embxlb_module)"  -I../../../include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include2 -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -include /usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include/linux/autoconf.h embxlb_module.c -o obj/linux/st40/embxlb_module.lo 
+sh4-unknown-linux-gnu-ld -r -EL  -o obj/linux/st40/rpc_userver.o_shipped obj/linux/st40/rpc_userver.lo
+sh4-unknown-linux-gnu-gcc -c -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -Werror-implicit-function-declaration -Wdeclaration-after-statement -Wno-pointer-sign -ml -Wa,-isa=sh4 -m4 -m4-nofpu -pipe -D__LINUX__ -D__SH4__ -D__KERNEL__ -DMODULE -DEXPORT_SYMTAB -fno-common -ffreestanding -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-strict-aliasing -fno-stack-protector -DMULTICOM_GPL -O2  -I../include -I../../../src/embx/include -D"KBUILD_STR(s)=#s" -D"KBUILD_MODNAME=KBUILD_STR(mme_host)" -D"KBUILD_BASENAME=KBUILD_STR(MMEMessageQueue)"  -I../../../include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include2 -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -include /usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include/linux/autoconf.h ../companion/MMEMessageQueue.c -o obj/linux/st40/MMEMessageQueue.lo 
+Manager.c: In function 'destroyTransportInfo':
+Manager.c:78: warning: 'message' may be used uninitialized in this function
+Manager.c:78: note: 'message' was declared here
+cp -f obj/linux/st40/rpc_userver.o_shipped ../../../lib/linux/st40
+make[4]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/rpc/rpc_userver'
+make[3]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/rpc'
+cp -f embxlb.h ../../../include/embxlb.h
+make[5]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/mme/test/simple'
+make[5]: Nothing to be done for `install'.
+make[5]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/mme/test/simple'
+make -C buffercontent install  DIST_SRC_LOCATION=./src/mme/test/buffercontent
+sh4-unknown-linux-gnu-gcc -c -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -Werror-implicit-function-declaration -Wdeclaration-after-statement -Wno-pointer-sign -ml -Wa,-isa=sh4 -m4 -m4-nofpu -pipe -D__LINUX__ -D__SH4__ -D__KERNEL__ -DMODULE -DEXPORT_SYMTAB -fno-common -ffreestanding -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-strict-aliasing -fno-stack-protector -DMULTICOM_GPL -O2  -I../include -I../../../src/embx/include -D"KBUILD_STR(s)=#s" -D"KBUILD_MODNAME=KBUILD_STR(mme_host)" -D"KBUILD_BASENAME=KBUILD_STR(mme_tune)"  -I../../../include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include2 -Wp,-isystem,/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include -include /usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/root//usr/src/linux/include/linux/autoconf.h ../companion/mme_tune.c -o obj/linux/st40/mme_tune.lo 
+make -C local install  DIST_SRC_LOCATION=./src/mme/test/local
+make[5]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/mme/test/buffercontent'
+make[5]: Nothing to be done for `install'.
+make[5]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/mme/test/buffercontent'
+make -C notify install  DIST_SRC_LOCATION=./src/mme/test/notify
+make -C register install  DIST_SRC_LOCATION=./src/mme/test/register
+make[5]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/mme/test/register'
+make[5]: Nothing to be done for `install'.
+make[5]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/mme/test/register'
+make -C limits install  DIST_SRC_LOCATION=./src/mme/test/limits
+make[5]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/mme/test/limits'
+make -C kernel install  DIST_SRC_LOCATION=./src/mme/test/limits/kernel
+make[5]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/mme/test/local'
+make -C kernel install  DIST_SRC_LOCATION=./src/mme/test/local/kernel
+make[5]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/mme/test/notify'
+make[5]: Nothing to be done for `install'.
+make[5]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/mme/test/notify'
+make[6]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/mme/test/local/kernel'
+make[6]: Nothing to be done for `install'.
+make[6]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/mme/test/local/kernel'
+make[5]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/mme/test/local'
+make[6]: Entering directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/mme/test/limits/kernel'
+make[6]: Nothing to be done for `install'.
+make[6]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/mme/test/limits/kernel'
+make[5]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/mme/test/limits'
+make[4]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/mme/test'
+sh4-unknown-linux-gnu-ld -r -EL  -o obj/linux/st40/embxloopback.o_shipped  obj/linux/st40/embxlb_connection.lo  obj/linux/st40/embxlb_factory.lo  obj/linux/st40/embxlb_localport.lo  obj/linux/st40/embxlb_remoteport.lo  obj/linux/st40/embxlb_transport.lo  obj/linux/st40/embxlb_module.lo
+cp -f obj/linux/st40/embxloopback.o_shipped ../../../lib/linux/st40
+make[4]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/embx/embxloopback'
+make[3]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/embx'
+make[2]: *** [embx] Error 2
+make[2]: *** Waiting for unfinished jobs....
+Manager.c: In function 'MME_RegisterTransformer':
+Manager.c:1009: warning: passing argument 1 of 'strcpy' discards qualifiers from pointer target type
+sh4-unknown-linux-gnu-ld -r -EL  -o obj/linux/st40/mme_host.o_shipped  obj/linux/st40/mme_linux_module.lo  obj/linux/st40/ExecutionLoop.lo  obj/linux/st40/LocalTransformer.lo  obj/linux/st40/LookupTable.lo  obj/linux/st40/Manager.lo  obj/linux/st40/RemoteTransformer.lo  obj/linux/st40/mme_debug.lo  obj/linux/st40/mme_host_release.lo  obj/linux/st40/MMEMessageQueue.lo  obj/linux/st40/mme_tune.lo
+cp -f obj/linux/st40/mme_host.o_shipped ../../../lib/linux/st40
+make[4]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/mme/host'
+make[3]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src/mme'
+make[2]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4/src'
+make[1]: *** [src] Error 2
+make[1]: Leaving directory `/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/build/portage/sys-libs/multicom-modules-3.2.2.4-r1/work/multicom-modules-3.2.2.4'
+make: *** [kbuild_wrapper] Error 2
+
+!!! ERROR: sys-libs/multicom-modules-3.2.2.4-r1 failed.
+Call stack:
+  ebuild.sh, line 1614:   Called dyn_compile
+  ebuild.sh, line 971:   Called qa_call 'src_compile'
+  environment, line 4182:   Called src_compile
+  multicom-modules-3.2.2.4-r1.ebuild, line 47:   Called linux-mod_src_compile
+  linux-mod.eclass, line 515:   Called die
+
+!!! Unable to make  ARCH=sh CROSS_COMPILE=sh4-unknown-linux-gnu- O= modules.
+!!! If you need support, post the topmost build error, and the call stack if relevant.
+!!! A complete build log is located at '/usr/targets/gaia-1.3.17-beta-sh-GAIABA_V0100_7109-redist/log/sys-libs:multicom-modules-3.2.2.4-r1:20091110-122205.log'.
+
+This ebuild used the following eclasses from overlays:
+
+  /usr/local/portage/wyplay-overlay/eclass/platform-config.eclass
+  /usr/local/portage/wyplay-overlay/eclass/subversion.eclass
+  /usr/local/portage/wyplay-overlay/eclass/linux-mod.eclass
+  /usr/local/portage/wyplay-overlay/eclass/redist.eclass
+
+!!! This ebuild is from an overlay: '/usr/local/portage/wyplay-overlay'

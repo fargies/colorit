@@ -12,6 +12,7 @@ AC_PROG_YACC
  
 AC_CONFIG_FILES([
         Makefile
-        src/Makefile])
+        src/Makefile
+        tests/Makefile])
  
 AC_OUTPUT

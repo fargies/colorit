@@ -66,7 +66,7 @@ log: EOL    { COLORIZE_DEF("\n", STATUS_NONE); }
 | EMERGE emerge_cmd EOL { COLORIZE(COL_EMERGE, "\n", STATUS_RESET); }
 ;
 
-gcc_cmd: GCC_COMPILER   { COLORIZE(COL_GCC_CMD, $<sval>1, STATUS_INFO); free($<sval>1); }
+gcc_cmd: GCC_COMPILER    { COLORIZE(COL_GCC_CMD, $<sval>1, STATUS_INFO); free($<sval>1); }
 | gcc_cmd GCC_OPTIM      { COLORIZE(COL_GCC_CMD, $<sval>2, STATUS_INFO); free($<sval>2); }
 | gcc_cmd GCC_LIB        { COLORIZE(COL_GCC_CMD, $<sval>2, STATUS_INFO); free($<sval>2); }
 | gcc_cmd WORD           { COLORIZE(COL_GCC_CMD, $<sval>2, STATUS_NONE); free($<sval>2); }
