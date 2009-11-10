@@ -47,18 +47,17 @@ void yyerror(colorit_data *pp, const char *s);
 logs:
 | logs log
 
-log: EOL
+log: EOL    { COLORIZE(COL_GCC_CMD, "\n", STATUS_NONE); }
 | words EOL {
                   if ($<sval>1) {
                     pp->print(pp->out, $<sval>1, STATUS_NONE);
                     pp->print(pp->out, "\n", STATUS_NONE);
                     free($<sval>1);
                   }
-                  fflush(pp->out);
                 }
-| GCC_LOG gcc_log EOL { COLORIZE(COL_GCC_CMD, "\n", STATUS_RESET); fflush(pp->out); }
-| GCC_CMD gcc_cmd EOL { COLORIZE(COL_GCC_CMD, "\n", STATUS_RESET); fflush(pp->out); }
-| MAKE make_cmd EOL   { COLORIZE(COL_GCC_CMD, "\n", STATUS_RESET); fflush(pp->out); }
+| GCC_LOG gcc_log EOL { COLORIZE(COL_GCC_CMD, "\n", STATUS_RESET); }
+| GCC_CMD gcc_cmd EOL { COLORIZE(COL_GCC_CMD, "\n", STATUS_RESET); }
+| MAKE make_cmd EOL   { COLORIZE(COL_GCC_CMD, "\n", STATUS_RESET); }
 ;
 
 gcc_cmd: GCC_COMPILER   { COLORIZE(COL_GCC_CMD, $<sval>1, STATUS_INFO); free($<sval>1); }
