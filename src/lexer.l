@@ -12,6 +12,10 @@
 #define yyival yylval->ival
 
 typedef void * colorit_data;
+
+/* Use this to force the lexer to be interactive */
+inline int isatty (int __fd) { return 1; } 
+
 %}
 
 %s L_GCC_CMD

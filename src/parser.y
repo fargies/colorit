@@ -41,20 +41,22 @@ void yyerror(colorit_data *pp, const char *s);
 %token <sval> OPTIM
 %token EOL
 
-%start log
+%start logs
 %%
-log:
-| log EOL
-| log words EOL {
-                  if ($<sval>2) {
-                    pp->print(pp->out, $<sval>2, STATUS_NONE);
+logs:
+| logs log
+
+log: EOL
+| words EOL {
+                  if ($<sval>1) {
+                    pp->print(pp->out, $<sval>1, STATUS_NONE);
                     pp->print(pp->out, "\n", STATUS_NONE);
-                    free($<sval>2);
+                    free($<sval>1);
                   }
                   fflush(pp->out);
                 }
-| log GCC_LOG gcc_log EOL { COLORIZE(COL_GCC_LOG, "\n", STATUS_RESET); fflush(pp->out); }
-| log GCC_CMD gcc_cmd EOL { COLORIZE(COL_GCC_CMD, "\n", STATUS_RESET); fflush(pp->out); }
+| GCC_LOG gcc_log EOL { COLORIZE(COL_GCC_LOG, "\n", STATUS_RESET); fflush(pp->out); }
+| GCC_CMD gcc_cmd EOL { COLORIZE(COL_GCC_CMD, "\n", STATUS_RESET); fflush(pp->out); }
 ;
 
 gcc_cmd: GCC_COMPILER   { COLORIZE(COL_GCC_CMD, $<sval>1, STATUS_INFO); free($<sval>1); }
