@@ -38,6 +38,8 @@ GCC_OPTIM   (-g(gdb3)?|-O([0-3]|s)|(-march|-mtune)=[[:alnum]]*)
 
 ^[^[:space:]\n]*cc[[:space:]].* { BEGIN(L_GCC_CMD); yyless(0); return GCC_CMD; }
 
+^make(\[[0-9]+\])?:.* { BEGIN(L_MAKE); yyless(0); return MAKE; }
+
 ^{WORD}:.* { BEGIN(L_GCC_LOG_START); yyless(0); return GCC_LOG; }
 
 <L_GCC_CMD>[^[:space:]\n]*cc[ \t] {
@@ -63,6 +65,8 @@ GCC_OPTIM   (-g(gdb3)?|-O([0-3]|s)|(-march|-mtune)=[[:alnum]]*)
 
 <L_GCC_LOG>{GCC_WARNING} { yysval = strdup(yytext); return WARNING; }
 <L_GCC_LOG>{GCC_ERROR}   { yysval = strdup(yytext); return ERROR; }
+
+<L_MAKE>\*\*\*.*         { yysval = strdup(yytext); return ERROR; }
 
 {TS}    { yysval = strdup(yytext); return WORD; }
 {WORD}  { yysval = strdup(yytext); return WORD; }

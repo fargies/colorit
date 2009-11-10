@@ -27,6 +27,7 @@ void yyerror(colorit_data *pp, const char *s);
 
 %token GCC_CMD    "GCC cmd"
 %token GCC_LOG    "GCC log"
+%token MAKE       "MAKE cmd"
 %token <sval> GCC_COMPILER "compiler"
 %token <sval> GCC_OPTIM "optim"
 
@@ -55,8 +56,10 @@ log: EOL
                   }
                   fflush(pp->out);
                 }
-| GCC_LOG gcc_log EOL { COLORIZE(COL_GCC_LOG, "\n", STATUS_RESET); fflush(pp->out); }
-| GCC_CMD gcc_cmd EOL { COLORIZE(COL_GCC_CMD, "\n", STATUS_RESET); fflush(pp->out); }
+| GCC_LOG gcc_log EOL
+| GCC_CMD gcc_cmd EOL
+| MAKE make_cmd EOL   
+{ COLORIZE(COL_GCC_CMD, "\n", STATUS_RESET); fflush(pp->out); }
 ;
 
 gcc_cmd: GCC_COMPILER   { COLORIZE(COL_GCC_CMD, $<sval>1, STATUS_INFO); free($<sval>1); }
@@ -72,6 +75,11 @@ gcc_log: FILENAME { COLORIZE(COL_GCC_LOG, $<sval>1, STATUS_INFO); free($<sval>1)
 | gcc_log ERROR    { COLORIZE(COL_GCC_LOG, NULL, STATUS_ERROR);  COLORIZE(COL_GCC_CMD, $<sval>2, STATUS_NONE); free($<sval>2);}
 | gcc_log TS       { COLORIZE(COL_GCC_CMD, $<sval>2, STATUS_NONE); free($<sval>2); }
 | gcc_log WORD     { COLORIZE(COL_GCC_CMD, $<sval>2, STATUS_NONE); free($<sval>2); }
+;
+
+make_cmd:
+| make_cmd words      { COLORIZE(COL_GCC_CMD, $<sval>2, STATUS_NONE); free($<sval>2); }
+| make_cmd ERROR      { COLORIZE(COL_GCC_LOG, NULL, STATUS_ERROR);  COLORIZE(COL_GCC_CMD, $<sval>2, STATUS_NONE); free($<sval>2);}
 ;
 
 words: WORD { $<sval>$ = $<sval>1; }
