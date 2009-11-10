@@ -14,7 +14,7 @@ int main() {
     }
     yyset_in(stdin, data.scaninfo);
 
-    data.col[COL_GCC_CMD] = data.col[COL_GCC_LOG] = data.col[COL_MAKE] = get_color_term(COL_GCC_CMD);
+    data.col[COL_GCC_CMD] = data.col[COL_GCC_LOG] = data.col[COL_MAKE] = data.col[COL_EMERGE] = get_color_term(COL_GCC_CMD);
     data.out = stdout;
     data.print = print_term;
 

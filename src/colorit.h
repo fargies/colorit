@@ -13,6 +13,7 @@ typedef enum {
     COL_GCC_CMD,
     COL_GCC_LOG,
     COL_MAKE,
+    COL_EMERGE,
     COL_TOTAL_NUMBER,
 } colorizer_type;
 
