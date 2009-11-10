@@ -7,8 +7,11 @@ AM_CONFIG_HEADER(config.h)
  
 # Checks for programs.
 AC_PROG_CC
+AC_PROG_LIBTOOL
 AM_PROG_LEX
 AC_PROG_YACC
+
+AM_PROG_CC_C_O
 
 AC_ARG_ENABLE(yydebug, AS_HELP_STRING([--enable-yydebug],
                                       [Activate lexer's debug (default: disabled)]

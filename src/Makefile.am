@@ -15,5 +15,9 @@ lexer.h: lexer.l
 
 colorit_SOURCES = parser.y lexer.l main.c parser_util.h parser_util.c colorit.h colorize_term.h colorize_term.c
 
+lib_LTLIBRARIES = libcolorit-term.la
+
+libcolorit_term_la_SOURCES = colorize_term.c colorize_term.h colorit.h
+
 BUILT_SOURCES = parser.c parser.h lexer.h lexer.c
 CLEANFILES = ${BUILT_SOURCES}
