@@ -30,6 +30,7 @@ void yyerror(colorit_data *pp, const char *s);
 %token MAKE       "MAKE cmd"
 %token <sval> GCC_COMPILER "compiler"
 %token <sval> GCC_OPTIM "optim"
+%token <sval> GCC_LIB   "lib"
 
 %token <sval> WARNING  "warning"
 %token <sval> ERROR    "error"
@@ -37,9 +38,6 @@ void yyerror(colorit_data *pp, const char *s);
 %token <sval> FILENAME "filename"
 %token <sval> WORD
 %token <sval> TS
-%token <sval> LIB
-%token <sval> INCLUDE
-%token <sval> OPTIM
 %token EOL
 
 %start logs
@@ -62,6 +60,7 @@ log: EOL    { COLORIZE(COL_GCC_CMD, "\n", STATUS_NONE); }
 
 gcc_cmd: GCC_COMPILER   { COLORIZE(COL_GCC_CMD, $<sval>1, STATUS_INFO); free($<sval>1); }
 | gcc_cmd GCC_OPTIM      { COLORIZE(COL_GCC_CMD, $<sval>2, STATUS_INFO); free($<sval>2); }
+| gcc_cmd GCC_LIB        { COLORIZE(COL_GCC_CMD, $<sval>2, STATUS_INFO); free($<sval>2); }
 | gcc_cmd WORD           { COLORIZE(COL_GCC_CMD, $<sval>2, STATUS_NONE); free($<sval>2); }
 | gcc_cmd TS             { COLORIZE(COL_GCC_CMD, $<sval>2, STATUS_NONE); free($<sval>2); }
 ;

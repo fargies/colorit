@@ -30,6 +30,7 @@ WORD        [^[:space:]\n]+
 TS          [ \t]+
 
 GCC_OPTIM   (-g(gdb3)?|-O([0-3]|s)|(-march|-mtune)=[[:alnum]]*)
+GCC_LIB     ({WORD}\.la|-l{WORD})
 
 %%
 %{
@@ -47,6 +48,7 @@ GCC_OPTIM   (-g(gdb3)?|-O([0-3]|s)|(-march|-mtune)=[[:alnum]]*)
                                     yysval = strndup(yytext, yyleng);
                                     return GCC_COMPILER;
                                    }
+<L_GCC_CMD>{GCC_LIB}   { yysval = strdup(yytext); return GCC_LIB; }
 <L_GCC_CMD>{GCC_OPTIM} { yysval = strdup(yytext); return GCC_OPTIM; }
 
 <L_GCC_LOG_START>{NUMBER} {

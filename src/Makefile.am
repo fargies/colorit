@@ -2,6 +2,7 @@
 bin_PROGRAMS = colorit
 
 BUILT_SOURCES = parser.c parser.h lexer.h
+CLEANFILES = ${BUILT_SOURCES}
 AM_YFLAGS = -d -r all
 
 lexer.h: lexer.l
