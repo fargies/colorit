@@ -44,6 +44,7 @@ void yyerror(colorit_data *pp, const char *s);
 %start log
 %%
 log:
+| log EOL
 | log words EOL {
                   if ($<sval>2) {
                     pp->print(pp->out, $<sval>2, STATUS_NONE);
@@ -56,23 +57,23 @@ log:
 | log GCC_CMD gcc_cmd EOL { COLORIZE(COL_GCC_CMD, "\n", STATUS_RESET); fflush(pp->out); }
 ;
 
-gcc_cmd:
-| gcc_cmd GCC_COMPILER   { COLORIZE(COL_GCC_CMD, $<sval>2, STATUS_INFO); free($<sval>2); }
+gcc_cmd: GCC_COMPILER   { COLORIZE(COL_GCC_CMD, $<sval>1, STATUS_INFO); free($<sval>1); }
 | gcc_cmd GCC_OPTIM      { COLORIZE(COL_GCC_CMD, $<sval>2, STATUS_INFO); free($<sval>2); }
 | gcc_cmd WORD           { COLORIZE(COL_GCC_CMD, $<sval>2, STATUS_NONE); free($<sval>2); }
 | gcc_cmd TS             { COLORIZE(COL_GCC_CMD, $<sval>2, STATUS_NONE); free($<sval>2); }
 ;
 
 
-gcc_log:
-| gcc_log FILENAME { COLORIZE(COL_GCC_LOG, $<sval>2, STATUS_INFO); free($<sval>2); }
+gcc_log: FILENAME { COLORIZE(COL_GCC_LOG, $<sval>1, STATUS_INFO); free($<sval>1); }
 | gcc_log LINE     { COLORIZE(COL_GCC_LOG, $<sval>2, STATUS_INFO); free($<sval>2); }
 | gcc_log WARNING  { COLORIZE(COL_GCC_LOG, NULL, STATUS_WARNING);  COLORIZE(COL_GCC_CMD, $<sval>2, STATUS_NONE); free($<sval>2);}
 | gcc_log ERROR    { COLORIZE(COL_GCC_LOG, NULL, STATUS_ERROR);  COLORIZE(COL_GCC_CMD, $<sval>2, STATUS_NONE); free($<sval>2);}
-| gcc_log words    { COLORIZE(COL_GCC_CMD, $<sval>2, STATUS_NONE); free($<sval>2); }
+| gcc_log TS       { COLORIZE(COL_GCC_CMD, $<sval>2, STATUS_NONE); free($<sval>2); }
+| gcc_log WORD     { COLORIZE(COL_GCC_CMD, $<sval>2, STATUS_NONE); free($<sval>2); }
 ;
 
-words: { $<sval>$ = NULL; }
+words: WORD { $<sval>$ = $<sval>1; }
+| TS { $<sval>$ = $<sval>1; }
 | words TS
 | words WORD
 {
