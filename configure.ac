@@ -9,7 +9,14 @@ AM_CONFIG_HEADER(config.h)
 AC_PROG_CC
 AM_PROG_LEX
 AC_PROG_YACC
+
+AC_ARG_ENABLE(yydebug, AS_HELP_STRING([--enable-yydebug],
+                                      [Activate lexer's debug (default: disabled)]
+                                     ),
+              [yydebug=$enableval], [yydebug=no])
  
+AM_CONDITIONAL(COLORIT_YYDEBUG, [test "x$yydebug" = xyes]) 
+
 AC_CONFIG_FILES([
         Makefile
         src/Makefile

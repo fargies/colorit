@@ -18,11 +18,11 @@ inline int isatty (int __fd) { return 1; }
 
 %}
 
-%s L_GCC_CMD
-%s L_GCC_LOG
+%x L_GCC_CMD
+%x L_GCC_LOG
 %x L_GCC_LOG_START
-%s L_MAKE
-%s L_EMERGE
+%x L_MAKE
+%x L_EMERGE
 
 GCC_WARNING warning(:)?
 GCC_ERROR   error(:)?
@@ -45,11 +45,11 @@ EMERGE_INFO (Emerging|{WORD}ing[ \t]source|Source[ \t]{WORD}ed|Test[ \t]phase|Co
 ^{WORD}:.*                      { BEGIN(L_GCC_LOG_START); yyless(0); return GCC_LOG; }
 ^(>>>|!!!){TS}.*                      { BEGIN(L_EMERGE); yyless(0); return EMERGE; }
 
-<L_GCC_CMD>[^[:space:]\n]*cc[ \t] {
-                                    yyless(yyleng - 1);
-                                    yysval = strndup(yytext, yyleng);
+<L_GCC_CMD>[^[:space:]\n]*cc[ \t\n] {
+                                      yyless(yyleng - 1);
+                                      yysval = strndup(yytext, yyleng);
                                     return GCC_COMPILER;
-                                   }
+                                    }
 <L_GCC_CMD>{GCC_LIB}   { yysval = strdup(yytext); return GCC_LIB; }
 <L_GCC_CMD>{GCC_OPTIM} { yysval = strdup(yytext); return GCC_OPTIM; }
 
@@ -75,9 +75,9 @@ EMERGE_INFO (Emerging|{WORD}ing[ \t]source|Source[ \t]{WORD}ed|Test[ \t]phase|Co
 <L_EMERGE>{EMERGE_INFO}  { yysval = strdup(yytext); return INFO; }
 <L_EMERGE>!!![ \t].*     { yysval = strdup(yytext); return ERROR; }
 
-{TS}    { yysval = strdup(yytext); return WORD; }
-{WORD}  { yysval = strdup(yytext); return WORD; }
-\n      { BEGIN(INITIAL); return EOL; } 
+<INITIAL,L_GCC_CMD,L_GCC_LOG,L_MAKE,L_EMERGE>{TS}    { yysval = strdup(yytext); return WORD; }
+<INITIAL,L_GCC_CMD,L_GCC_LOG,L_MAKE,L_EMERGE>{WORD}  { yysval = strdup(yytext); return WORD; }
+<INITIAL,L_GCC_CMD,L_GCC_LOG,L_MAKE,L_EMERGE>\n      { BEGIN(INITIAL); return EOL; } 
 
 
 %%
