@@ -53,19 +53,22 @@ EMERGE_INFO (Emerging|{WORD}ing[ \t]source|Source[ \t]{WORD}ed|Test[ \t]phase|Co
 <L_GCC_CMD>{GCC_LIB}   { yysval = strdup(yytext); return GCC_LIB; }
 <L_GCC_CMD>{GCC_OPTIM} { yysval = strdup(yytext); return GCC_OPTIM; }
 
-<L_GCC_LOG_START>{NUMBER} {
-                            yysval = strdup(yytext); return LINE;
-                          }
-<L_GCC_LOG_START>[^[:space:]\n:]+ {
-                                    yysval = strdup(yytext); return FILENAME;
-                                  }
+<L_GCC_LOG_START>{NUMBER}: {
+                             yyless(yyleng - 1);
+                             yysval = strdup(yytext); return LINE;
+                           }
+
+<L_GCC_LOG_START>[^[:space:]\n:]+: {
+                                     yyless(yyleng - 1);
+                                     yysval = strdup(yytext); return FILENAME;
+                                   }
 <L_GCC_LOG_START>":" {
-                        yysval = strdup(yytext); return WORD;
+                       yysval = strdup(yytext); return WORD;
                      }
-<L_GCC_LOG_START>{TS} {
-                        yyless(0);
-                        BEGIN(L_GCC_LOG);
-                      }
+<L_GCC_LOG_START>. {
+                     yyless(0);
+                     BEGIN(L_GCC_LOG);
+                   }
 
 <L_GCC_LOG>{GCC_WARNING} { yysval = strdup(yytext); return WARNING; }
 <L_GCC_LOG>{GCC_ERROR}   { yysval = strdup(yytext); return ERROR; }
@@ -75,7 +78,7 @@ EMERGE_INFO (Emerging|{WORD}ing[ \t]source|Source[ \t]{WORD}ed|Test[ \t]phase|Co
 <L_EMERGE>{EMERGE_INFO}  { yysval = strdup(yytext); return INFO; }
 <L_EMERGE>!!![ \t].*     { yysval = strdup(yytext); return ERROR; }
 
-{TS}    { yysval = strdup(yytext); return WORD; }
+{TS}    { yysval = strdup(yytext); return TS; }
 {WORD}  { yysval = strdup(yytext); return WORD; }
 \n      { BEGIN(INITIAL); return EOL; } 
 

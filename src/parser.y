@@ -78,7 +78,7 @@ gcc_cmd: GCC_COMPILER    { COLORIZE(COL_GCC_CMD, $<sval>1, STATUS_INFO); free($<
 ;
 
 
-gcc_log: FILENAME { COLORIZE(COL_GCC_LOG, $<sval>1, STATUS_INFO); free($<sval>1); }
+gcc_log: FILENAME  { COLORIZE(COL_GCC_LOG, $<sval>1, STATUS_INFO); free($<sval>1); }
 | gcc_log LINE     { COLORIZE(COL_GCC_LOG, $<sval>2, STATUS_INFO); free($<sval>2); }
 | gcc_log WARNING  { COLORIZE(COL_GCC_LOG, NULL, STATUS_WARNING);  COLORIZE(COL_GCC_CMD, $<sval>2, STATUS_NONE); free($<sval>2);}
 | gcc_log ERROR    { COLORIZE(COL_GCC_LOG, NULL, STATUS_ERROR);  COLORIZE(COL_GCC_CMD, $<sval>2, STATUS_NONE); free($<sval>2);}
