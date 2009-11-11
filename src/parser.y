@@ -55,6 +55,7 @@ yydebug=1;
 %%
 logs:
 | logs log
+| error EOL { yyerrok; }
 
 log: EOL    { COLORIZE_DEF("\n", STATUS_NONE); }
 | words EOL {
@@ -123,6 +124,6 @@ words: { $<sval>$ = NULL; }
 
 void yyerror(colorit_data *pp, const char *s)
 {
-  fprintf(stderr, "%s\n", s);
+  fprintf(stderr, "colorit: %s\n", s);
 }
 
