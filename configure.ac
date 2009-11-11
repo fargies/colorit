@@ -4,6 +4,8 @@ AC_INIT(colorit, 1.0.0, fargier.sylvain@free.fr)
 # AC_CANONICAL_SYSTEM
 AM_INIT_AUTOMAKE
 AM_CONFIG_HEADER(config.h)
+
+AC_CONFIG_MACRO_DIR([m4])
  
 # Checks for programs.
 AC_PROG_CC
