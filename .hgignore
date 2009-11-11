@@ -1,0 +1,11 @@
+Makefile(\.in)?$
+configure$
+aclocal\.m4$
+autom4te\.cache$
+config\.(log|h|status|h.in~)$
+py-compile$
+stamp-*
+missing$
+install-sh$
+.*\.(pyc|pyo|o|Po|so|la)
+ylwrap$
