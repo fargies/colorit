@@ -22,7 +22,7 @@
 
 void yyerror(colorit_data *pp, const char *s);
 
-#define COLORIZE(type,txt,status) pp->col[type]->print(pp->out,txt,status)
+#define COLORIZE(type,txt,status) pp->col[type](pp->out,txt,status)
 #define COLORIZE_DEF(txt, status) pp->print(pp->out,txt,status)
 
 #ifdef COLORIT_YYDEBUG

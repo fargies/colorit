@@ -15,6 +15,10 @@ AC_PROG_YACC
 
 AM_PROG_CC_C_O
 
+AC_CHECK_LIB([dl], [dlopen], DL_LIBS="-ldl", AC_MSG_ERROR([libdl was not found !]))
+
+AC_SUBST(DL_LIBS)
+
 AC_ARG_ENABLE(yydebug, AS_HELP_STRING([--enable-yydebug],
                                       [Activate lexer's debug (default: disabled)]
                                      ),

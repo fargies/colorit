@@ -1,7 +1,8 @@
 
 #include <stdio.h>
+#include <string.h>
 #include "colorit.h"
-#include "colorize_term.h"
+
 #if 0
 #define INFO    "\033[1;30;46m"
 #define WARNING "\033[1;30;43m"
@@ -15,7 +16,7 @@
 #define RESET   "\033[0m"
 #endif
 
-void print_term(FILE *file, const char *text, colorizer_status status)
+static void print_term(FILE *file, const char *text, colorizer_status status)
 {
   switch (status) {
     case STATUS_INFO:
@@ -32,16 +33,17 @@ void print_term(FILE *file, const char *text, colorizer_status status)
       break;
   };
   if (text) {
-    fprintf(file, text);
+    fwrite(text, strlen(text), 1, file);
     if (status != STATUS_NONE)
       fprintf(file, RESET);
   }
 }
 
-colorizer *get_color_term(colorizer_type type) {
-  colorizer *col = malloc(sizeof (colorizer));
-  col->print = print_term;
-  col->data = NULL;
-  return col;
+colorizer *get_colorizer(colorizer_type type) {
+  return &print_term;
+}
+
+colorizer *get_default_colorizer() {
+  return &print_term;
 }
 
