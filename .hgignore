@@ -7,5 +7,10 @@ py-compile$
 stamp-*
 missing$
 install-sh$
-.*\.(pyc|pyo|o|Po|so|la)
+.*\.(pyc|pyo|o|Po|so|la|lo)
 ylwrap$
+/.libs/.*
+/.deps/.*
+
+src/lexer.(c|h)$
+src/parser.(c|h)$
