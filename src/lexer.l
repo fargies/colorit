@@ -79,7 +79,7 @@ EMERGE_INFO (Emerging|{WORD}ing[ \t]source|Source[ \t]{WORD}ed|Test[ \t]phase|Co
     yysval = strdup(yytext); return WORD;
   }
 
-<L_GCC_LOG_START>. {
+<L_GCC_LOG_START>.|\n {
     yyless(0);
     BEGIN(L_GCC_LOG);
   }
