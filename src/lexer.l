@@ -23,6 +23,8 @@ inline int isatty (int __fd) { return 1; }
 %x L_GCC_LOG_START
 %s L_MAKE
 %s L_EMERGE
+%s L_LT
+%s L_LT_GCC
 
 GCC_WARNING warning(:)?
 GCC_ERROR   error(:)?
@@ -42,41 +44,76 @@ EMERGE_INFO (Emerging|{WORD}ing[ \t]source|Source[ \t]{WORD}ed|Test[ \t]phase|Co
 
 <INITIAL>^[^[:space:]\n]*cc[[:space:]].* { BEGIN(L_GCC_CMD); yyless(0); return GCC_CMD; }
 <INITIAL>^make(\[[0-9]+\])?:.*           { BEGIN(L_MAKE); yyless(0); return MAKE; }
+<INITIAL>^libtool:.*                     { BEGIN(L_LT); yyless(0); return LIBTOOL; }
 <INITIAL>^{WORD}:.*                      { BEGIN(L_GCC_LOG_START); yyless(0); return GCC_LOG; }
 <INITIAL>^(>>>|!!!){TS}.*                { BEGIN(L_EMERGE); yyless(0); return EMERGE; }
 
-<L_GCC_CMD>[^[:space:]\n]*cc[ \t\n] {
-                                      yyless(yyleng - 1);
-                                      yysval = strndup(yytext, yyleng);
-                                    return INFO;
-                                    }
-<L_GCC_CMD>{GCC_LIB}   { yysval = strdup(yytext); return INFO; }
-<L_GCC_CMD>{GCC_OPTIM} { yysval = strdup(yytext); return INFO; }
+<L_GCC_CMD,L_LT_GCC>(({WORD}-)*g?|dist)?cc[ \t\n] {
+    yyless(yyleng - 1);
+    yysval = strndup(yytext, yyleng);
+    return INFO;
+  }
+
+<L_GCC_CMD,L_LT_GCC>{GCC_LIB}   {
+    yysval = strdup(yytext);
+    return INFO;
+  }
+
+<L_GCC_CMD,L_LT_GCC>{GCC_OPTIM} {
+    yysval = strdup(yytext);
+    return INFO;
+  }
 
 <L_GCC_LOG_START>{NUMBER}: {
-                             yyless(yyleng - 1);
-                             yysval = strdup(yytext); return INFO;
-                           }
+    yyless(yyleng - 1);
+    yysval = strdup(yytext);
+    return INFO;
+  }
 
 <L_GCC_LOG_START>[^[:space:]\n:]+: {
-                                     yyless(yyleng - 1);
-                                     yysval = strdup(yytext); return INFO;
-                                   }
+    yyless(yyleng - 1);
+    yysval = strdup(yytext); return INFO;
+  }
+
 <L_GCC_LOG_START>":" {
-                       yysval = strdup(yytext); return WORD;
-                     }
+    yysval = strdup(yytext); return WORD;
+  }
+
 <L_GCC_LOG_START>. {
-                     yyless(0);
-                     BEGIN(L_GCC_LOG);
-                   }
+    yyless(0);
+    BEGIN(L_GCC_LOG);
+  }
 
-<L_GCC_LOG>{GCC_WARNING} { yysval = strdup(yytext); return WARNING; }
-<L_GCC_LOG>{GCC_ERROR}   { yysval = strdup(yytext); return ERROR; }
+<L_GCC_LOG>{GCC_WARNING}.* {
+    yysval = strdup(yytext);
+    return WARNING;
+  }
+<L_GCC_LOG>{GCC_ERROR}.* {
+    yysval = strdup(yytext);
+    return ERROR;
+  }
 
-<L_MAKE>\*\*\*.*         { yysval = strdup(yytext); return ERROR; }
+<L_MAKE>\*\*\*.* {
+    yysval = strdup(yytext);
+    return ERROR;
+  }
 
-<L_EMERGE>{EMERGE_INFO}  { yysval = strdup(yytext); return INFO; }
-<L_EMERGE>!!![ \t].*     { yysval = strdup(yytext); return ERROR; }
+<L_EMERGE>{EMERGE_INFO} {
+    yysval = strdup(yytext);
+    return INFO;
+  }
+
+<L_EMERGE>!!![ \t].* {
+    yysval = strdup(yytext);
+    return ERROR;
+  }
+
+<L_LT>(compile|link): {
+    yyless(yyleng - 1);
+    yysval = strdup(yytext);
+    BEGIN(L_LT_GCC);
+    return WORD;
+  }
 
 {TS}    { yysval = strdup(yytext); return TS; }
 {WORD}  { yysval = strdup(yytext); return WORD; }

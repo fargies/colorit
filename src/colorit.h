@@ -16,6 +16,7 @@ typedef enum {
     COL_GCC_LOG,
     COL_MAKE,
     COL_EMERGE,
+    COL_LIBTOOL,
     COL_TOTAL_NUMBER,
 } colorizer_type;
 
@@ -34,6 +35,7 @@ typedef struct {
     FILE *out;
     void (*print)(FILE *, const char *, colorizer_status);
     colorizer col[COL_TOTAL_NUMBER];
+    colorizer_type col_type;
 } colorit_data;
 
 int colorit_init(colorit_data *data, const char *libname);

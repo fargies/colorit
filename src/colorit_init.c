@@ -8,6 +8,8 @@ int colorit_init(colorit_data *data, const char *libname) {
     uint8_t i;
     void *lib = dlopen(libname, RTLD_NOW);
 
+    data->col_type = 0;
+
     if (!lib)
         return 1;
 

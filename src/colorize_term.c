@@ -40,10 +40,10 @@ static void print_term(FILE *file, const char *text, colorizer_status status)
 }
 
 colorizer *get_colorizer(colorizer_type type) {
-  return &print_term;
+  return (colorizer *) &print_term;
 }
 
 colorizer *get_default_colorizer() {
-  return &print_term;
+  return (colorizer *) &print_term;
 }
 
