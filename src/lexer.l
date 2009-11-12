@@ -48,19 +48,19 @@ EMERGE_INFO (Emerging|{WORD}ing[ \t]source|Source[ \t]{WORD}ed|Test[ \t]phase|Co
 <L_GCC_CMD>[^[:space:]\n]*cc[ \t\n] {
                                       yyless(yyleng - 1);
                                       yysval = strndup(yytext, yyleng);
-                                    return GCC_COMPILER;
+                                    return INFO;
                                     }
-<L_GCC_CMD>{GCC_LIB}   { yysval = strdup(yytext); return GCC_LIB; }
-<L_GCC_CMD>{GCC_OPTIM} { yysval = strdup(yytext); return GCC_OPTIM; }
+<L_GCC_CMD>{GCC_LIB}   { yysval = strdup(yytext); return INFO; }
+<L_GCC_CMD>{GCC_OPTIM} { yysval = strdup(yytext); return INFO; }
 
 <L_GCC_LOG_START>{NUMBER}: {
                              yyless(yyleng - 1);
-                             yysval = strdup(yytext); return LINE;
+                             yysval = strdup(yytext); return INFO;
                            }
 
 <L_GCC_LOG_START>[^[:space:]\n:]+: {
                                      yyless(yyleng - 1);
-                                     yysval = strdup(yytext); return FILENAME;
+                                     yysval = strdup(yytext); return INFO;
                                    }
 <L_GCC_LOG_START>":" {
                        yysval = strdup(yytext); return WORD;
