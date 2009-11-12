@@ -1,6 +1,6 @@
 # Version minimale d'autoconf requise
 AC_PREREQ(2.59)
-AC_INIT(colorit, 1.0.0, fargier.sylvain@free.fr)
+AC_INIT(colorit, 1.0.3, fargier.sylvain@free.fr)
 # AC_CANONICAL_SYSTEM
 AM_INIT_AUTOMAKE
 AM_CONFIG_HEADER(config.h)
