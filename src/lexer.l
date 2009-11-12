@@ -122,9 +122,9 @@ EMERGE_INFO (Emerging|{WORD}ing[ \t]source|Source[ \t]{WORD}ed|Test[ \t]phase|Co
     return WORD;
   }
 
-{TS}    { yysval = strdup(yytext); return TS; }
-{WORD}  { yysval = strdup(yytext); return WORD; }
-\n      { BEGIN(INITIAL); return EOL; } 
+{TS}     { yysval = strdup(yytext); return TS; }
+{WORD}|. { yysval = strdup(yytext); return WORD; }
+\n       { BEGIN(INITIAL); return EOL; } 
 
 %%
 

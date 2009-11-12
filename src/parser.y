@@ -49,6 +49,7 @@ static void print_token_value (FILE *, int, YYSTYPE);
 %token <sval> WORD     "word"
 %token <sval> TS       "space"
 %token EOL
+%token END 0 "EOF"
 
 %start logs
 %%
@@ -60,8 +61,15 @@ logs:
       free($<sval>2);
     }
   }
-| logs error EOL { yyerrok; }
+| logs words END {
+    if ($<sval>2) {
+      COLORIZE_DEF($<sval>2, STATUS_NONE);
+      free($<sval>2);
+    }
+  }
 | logs log_type log_txt EOL { COLORIZE(pp->col_type, "\n", STATUS_RESET); }
+| logs log_type log_txt END { }
+| logs error { yyerrok; }
 ;
 
 log_type:

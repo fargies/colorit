@@ -6,6 +6,8 @@ dist_check_SCRIPTS = \
 	test_preload1.sh \
 	test_grammar1.sh \
 	test_scanner1.sh \
+	test_trash_input1.sh \
+	test_trash_input2.sh \
 	test_libtool1.sh
 
 TESTS = ${dist_check_SCRIPTS}
