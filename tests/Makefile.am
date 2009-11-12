@@ -1,5 +1,11 @@
 
-dist_check_SCRIPTS = test_gcc.sh test_gcc2.sh test_make1.sh test_preload1.sh test_grammar1.sh
+dist_check_SCRIPTS = \
+	test_gcc.sh \
+	test_gcc2.sh \
+	test_make1.sh \
+	test_preload1.sh \
+	test_grammar1.sh \
+	test_libtool1.sh
 
 TESTS = ${dist_check_SCRIPTS}
 

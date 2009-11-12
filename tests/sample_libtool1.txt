@@ -1,0 +1,108 @@
+Making clean in tests
+make[1]: Entering directory `/home/fargie_s/work/colorit/tests'
+rm -rf .libs _libs
+rm -f *.lo
+make[1]: Leaving directory `/home/fargie_s/work/colorit/tests'
+Making clean in src
+make[1]: Entering directory `/home/fargie_s/work/colorit/src'
+ rm -f colorit colorit
+test -z "parser.c parser.h lexer.h lexer.c" || rm -f parser.c parser.h lexer.h lexer.c
+test -z "libcolorit-term.la libcolorit-preload.la" || rm -f libcolorit-term.la libcolorit-preload.la
+rm -f "./so_locations"
+rm -f "./so_locations"
+rm -rf .libs _libs
+rm -f *.o
+rm -f *.lo
+make[1]: Leaving directory `/home/fargie_s/work/colorit/src'
+Making clean in .
+make[1]: Entering directory `/home/fargie_s/work/colorit'
+rm -rf .libs _libs
+rm -f *.lo
+make[1]: Leaving directory `/home/fargie_s/work/colorit'
+make  all-recursive
+make[1]: Entering directory `/home/fargie_s/work/colorit'
+Making all in src
+make[2]: Entering directory `/home/fargie_s/work/colorit/src'
+/bin/sh ../ylwrap parser.y y.tab.c parser.c y.tab.h parser.h y.output parser.output -- bison -y  -d -r all 
+conflicts: 1 shift/reduce
+updating parser.h
+parser.output is unchanged
+/bin/sh ../ylwrap lexer.l lexer.h lexer.h -- flex  
+/home/fargie_s/work/colorit/src/lexer.l:86: warning, -s option given but default rule can be matched
+/bin/sh ../ylwrap lexer.l lex.yy.c lexer.c -- flex  
+/home/fargie_s/work/colorit/src/lexer.l:86: warning, -s option given but default rule can be matched
+make  all-am
+make[3]: Entering directory `/home/fargie_s/work/colorit/src'
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..     -g -O2 -MT colorize_term.lo -MD -MP -MF .deps/colorize_term.Tpo -c -o colorize_term.lo colorize_term.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -g -O2 -MT colorize_term.lo -MD -MP -MF .deps/colorize_term.Tpo -c colorize_term.c  -fPIC -DPIC -o .libs/colorize_term.o
+colorize_term.c: In function 'print_term':
+colorize_term.c:36: warning: ignoring return value of 'fwrite', declared with attribute warn_unused_result
+colorize_term.c: In function 'get_colorizer':
+colorize_term.c:43: warning: return from incompatible pointer type
+colorize_term.c: In function 'get_default_colorizer':
+colorize_term.c:47: warning: return from incompatible pointer type
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -g -O2 -MT colorize_term.lo -MD -MP -MF .deps/colorize_term.Tpo -c colorize_term.c -o colorize_term.o >/dev/null 2>&1
+mv -f .deps/colorize_term.Tpo .deps/colorize_term.Plo
+/bin/sh ../libtool --tag=CC   --mode=link gcc  -g -O2   -o libcolorit-term.la -rpath /usr/local/lib colorize_term.lo  
+libtool: link: gcc -shared  .libs/colorize_term.o      -Wl,-soname -Wl,libcolorit-term.so.0 -o .libs/libcolorit-term.so.0.0.0
+libtool: link: (cd ".libs" && rm -f "libcolorit-term.so.0" && ln -s "libcolorit-term.so.0.0.0" "libcolorit-term.so.0")
+libtool: link: (cd ".libs" && rm -f "libcolorit-term.so" && ln -s "libcolorit-term.so.0.0.0" "libcolorit-term.so")
+libtool: link: ar cru .libs/libcolorit-term.a  colorize_term.o
+libtool: link: ranlib .libs/libcolorit-term.a
+libtool: link: ( cd ".libs" && rm -f "libcolorit-term.la" && ln -s "../libcolorit-term.la" "libcolorit-term.la" )
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..     -g -O2 -MT colorit_preload.lo -MD -MP -MF .deps/colorit_preload.Tpo -c -o colorit_preload.lo colorit_preload.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -g -O2 -MT colorit_preload.lo -MD -MP -MF .deps/colorit_preload.Tpo -c colorit_preload.c  -fPIC -DPIC -o .libs/colorit_preload.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -g -O2 -MT colorit_preload.lo -MD -MP -MF .deps/colorit_preload.Tpo -c colorit_preload.c -o colorit_preload.o >/dev/null 2>&1
+mv -f .deps/colorit_preload.Tpo .deps/colorit_preload.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..     -g -O2 -MT parser.lo -MD -MP -MF .deps/parser.Tpo -c -o parser.lo parser.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -g -O2 -MT parser.lo -MD -MP -MF .deps/parser.Tpo -c parser.c  -fPIC -DPIC -o .libs/parser.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -g -O2 -MT parser.lo -MD -MP -MF .deps/parser.Tpo -c parser.c -o parser.o >/dev/null 2>&1
+mv -f .deps/parser.Tpo .deps/parser.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..     -g -O2 -MT lexer.lo -MD -MP -MF .deps/lexer.Tpo -c -o lexer.lo lexer.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -g -O2 -MT lexer.lo -MD -MP -MF .deps/lexer.Tpo -c lexer.c  -fPIC -DPIC -o .libs/lexer.o
+lexer.l: In function 'yylex':
+lexer.l:50: warning: incompatible implicit declaration of built-in function 'strndup'
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -g -O2 -MT lexer.lo -MD -MP -MF .deps/lexer.Tpo -c lexer.c -o lexer.o >/dev/null 2>&1
+mv -f .deps/lexer.Tpo .deps/lexer.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..     -g -O2 -MT parser_util.lo -MD -MP -MF .deps/parser_util.Tpo -c -o parser_util.lo parser_util.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -g -O2 -MT parser_util.lo -MD -MP -MF .deps/parser_util.Tpo -c parser_util.c  -fPIC -DPIC -o .libs/parser_util.o
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -g -O2 -MT parser_util.lo -MD -MP -MF .deps/parser_util.Tpo -c parser_util.c -o parser_util.o >/dev/null 2>&1
+mv -f .deps/parser_util.Tpo .deps/parser_util.Plo
+/bin/sh ../libtool --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I. -I..     -g -O2 -MT colorit_init.lo -MD -MP -MF .deps/colorit_init.Tpo -c -o colorit_init.lo colorit_init.c
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -g -O2 -MT colorit_init.lo -MD -MP -MF .deps/colorit_init.Tpo -c colorit_init.c  -fPIC -DPIC -o .libs/colorit_init.o
+colorit_init.c: In function 'colorit_init':
+colorit_init.c:7: warning: parameter names (without types) in function declaration
+libtool: compile:  gcc -DHAVE_CONFIG_H -I. -I.. -g -O2 -MT colorit_init.lo -MD -MP -MF .deps/colorit_init.Tpo -c colorit_init.c -o colorit_init.o >/dev/null 2>&1
+mv -f .deps/colorit_init.Tpo .deps/colorit_init.Plo
+/bin/sh ../libtool --tag=CC   --mode=link gcc  -g -O2   -o libcolorit-preload.la -rpath /usr/local/lib colorit_preload.lo parser.lo lexer.lo parser_util.lo colorit_init.lo -ldl 
+libtool: link: gcc -shared  .libs/colorit_preload.o .libs/parser.o .libs/lexer.o .libs/parser_util.o .libs/colorit_init.o   -ldl    -Wl,-soname -Wl,libcolorit-preload.so.0 -o .libs/libcolorit-preload.so.0.0.0
+libtool: link: (cd ".libs" && rm -f "libcolorit-preload.so.0" && ln -s "libcolorit-preload.so.0.0.0" "libcolorit-preload.so.0")
+libtool: link: (cd ".libs" && rm -f "libcolorit-preload.so" && ln -s "libcolorit-preload.so.0.0.0" "libcolorit-preload.so")
+libtool: link: ar cru .libs/libcolorit-preload.a  colorit_preload.o parser.o lexer.o parser_util.o colorit_init.o
+libtool: link: ranlib .libs/libcolorit-preload.a
+libtool: link: ( cd ".libs" && rm -f "libcolorit-preload.la" && ln -s "../libcolorit-preload.la" "libcolorit-preload.la" )
+gcc -DHAVE_CONFIG_H -I. -I..     -g -O2 -MT colorit-parser.o -MD -MP -MF .deps/colorit-parser.Tpo -c -o colorit-parser.o `test -f 'parser.c' || echo './'`parser.c
+mv -f .deps/colorit-parser.Tpo .deps/colorit-parser.Po
+gcc -DHAVE_CONFIG_H -I. -I..     -g -O2 -MT colorit-lexer.o -MD -MP -MF .deps/colorit-lexer.Tpo -c -o colorit-lexer.o `test -f 'lexer.c' || echo './'`lexer.c
+lexer.l: In function 'yylex':
+lexer.l:50: warning: incompatible implicit declaration of built-in function 'strndup'
+mv -f .deps/colorit-lexer.Tpo .deps/colorit-lexer.Po
+gcc -DHAVE_CONFIG_H -I. -I..     -g -O2 -MT colorit-main.o -MD -MP -MF .deps/colorit-main.Tpo -c -o colorit-main.o `test -f 'main.c' || echo './'`main.c
+mv -f .deps/colorit-main.Tpo .deps/colorit-main.Po
+gcc -DHAVE_CONFIG_H -I. -I..     -g -O2 -MT colorit-parser_util.o -MD -MP -MF .deps/colorit-parser_util.Tpo -c -o colorit-parser_util.o `test -f 'parser_util.c' || echo './'`parser_util.c
+mv -f .deps/colorit-parser_util.Tpo .deps/colorit-parser_util.Po
+gcc -DHAVE_CONFIG_H -I. -I..     -g -O2 -MT colorit-colorit_init.o -MD -MP -MF .deps/colorit-colorit_init.Tpo -c -o colorit-colorit_init.o `test -f 'colorit_init.c' || echo './'`colorit_init.c
+colorit_init.c: In function 'colorit_init':
+colorit_init.c:7: warning: parameter names (without types) in function declaration
+mv -f .deps/colorit-colorit_init.Tpo .deps/colorit-colorit_init.Po
+/bin/sh ../libtool --tag=CC   --mode=link gcc  -g -O2   -o colorit colorit-parser.o colorit-lexer.o colorit-main.o colorit-parser_util.o colorit-colorit_init.o -ldl 
+libtool: link: gcc -g -O2 -o colorit colorit-parser.o colorit-lexer.o colorit-main.o colorit-parser_util.o colorit-colorit_init.o  -ldl
+make[3]: Leaving directory `/home/fargie_s/work/colorit/src'
+make[2]: Leaving directory `/home/fargie_s/work/colorit/src'
+Making all in tests
+make[2]: Entering directory `/home/fargie_s/work/colorit/tests'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/fargie_s/work/colorit/tests'
+make[2]: Entering directory `/home/fargie_s/work/colorit'
+make[2]: Leaving directory `/home/fargie_s/work/colorit'
+make[1]: Leaving directory `/home/fargie_s/work/colorit'

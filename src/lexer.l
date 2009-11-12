@@ -24,10 +24,10 @@ inline int isatty (int __fd) { return 1; }
 %s L_MAKE
 %s L_EMERGE
 %s L_LT
-%s L_LT_GCC
+%s L_LT_GCC L_LT_INSTALL
 
-GCC_WARNING warning(:)?
-GCC_ERROR   error(:)?
+WARNING warning(:)?
+ERROR   error(:)?
 NUMBER      [0-9]+
 WORD        [^[:space:]\n]+
 TS          [ \t]+
@@ -84,11 +84,11 @@ EMERGE_INFO (Emerging|{WORD}ing[ \t]source|Source[ \t]{WORD}ed|Test[ \t]phase|Co
     BEGIN(L_GCC_LOG);
   }
 
-<L_GCC_LOG>{GCC_WARNING}.* {
+<L_GCC_LOG,L_LT_INSTALL>{WARNING}.* {
     yysval = strdup(yytext);
     return WARNING;
   }
-<L_GCC_LOG>{GCC_ERROR}.* {
+<L_GCC_LOG>{ERROR}.* {
     yysval = strdup(yytext);
     return ERROR;
   }
@@ -115,10 +115,16 @@ EMERGE_INFO (Emerging|{WORD}ing[ \t]source|Source[ \t]{WORD}ed|Test[ \t]phase|Co
     return WORD;
   }
 
+<L_LT>install: {
+    yyless(yyleng - 1);
+    yysval = strdup(yytext);
+    BEGIN(L_LT_INSTALL);
+    return WORD;
+  }
+
 {TS}    { yysval = strdup(yytext); return TS; }
 {WORD}  { yysval = strdup(yytext); return WORD; }
 \n      { BEGIN(INITIAL); return EOL; } 
-
 
 %%
 
