@@ -1,0 +1,9 @@
+
+* Write manpage
+* Add getopt support (--enable/--disable)
+* Add envvar (COLORIT_OPTIONS color:stl:debug:drop:gcc:make:libtool ...
+* Pipe gcc logs to stlfilt (when stl option is enabled)
+* enable/disable color (using isatty, options, envvars)
+* filter output using an option (drop ?)
+* print verbose log messages when debug is enabled
+
